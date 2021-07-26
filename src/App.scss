@@ -1,0 +1,53 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+a {
+
+  color: white;
+  text-decoration: none;
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body {
+  font-family: "Quicksand-Regular", sans-serif;
+  font-weight: 400;
+}
+
+
+.container {
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.container-fluid {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+.app-wrapper-content {
+  color: white;
+  background-color: #363636;
+  flex: 80%;
+}
+
+.body {
+  display: flex;
+}

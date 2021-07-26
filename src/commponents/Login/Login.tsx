@@ -1,4 +1,5 @@
 import React, {ChangeEvent, useState} from "react";
+import s from "./Login.module.scss"
 import {useDispatch, useSelector} from "react-redux";
 import {loginTC, logOutTC} from "../../redux/loginReducer";
 import {AppStateType} from "../../redux/redux-store";
@@ -27,7 +28,7 @@ export const Login = () => {
     }
 
     return (
-        <div className="App">
+        <div className={s.login}>
 
             <input type="text" placeholder={"login"} value={email} onChange={onChangeHandlerLogin}/>
             <input type="text" placeholder={"password"} value={password} onChange={onChangeHandlerPassword}/>
