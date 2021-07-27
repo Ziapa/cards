@@ -1,0 +1,19 @@
+.button {
+  font-size: 15px;
+  border-radius: 5px;
+  color: white;
+  background-color: #81b53e;
+  border: none;
+  height: 25px;
+  min-width: 60px;
+  &:hover {
+    color: black;
+  }
+
+  &:active,
+  &:hover {
+    opacity: 0.8;
+    outline: none;
+  }
+}
+

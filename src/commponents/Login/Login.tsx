@@ -1,12 +1,15 @@
 import React, {ChangeEvent, useState} from "react";
 import s from "./Login.module.scss"
 import {useDispatch, useSelector} from "react-redux";
-import {loginTC, logOutTC} from "../../redux/loginReducer";
+import {loginTC} from "../../redux/loginReducer";
 import {AppStateType} from "../../redux/redux-store";
+import {NavLink} from "react-router-dom";
+import {Input} from "../GeneralComponents/Input/Input";
+import {Button} from "../GeneralComponents/Button/Button";
 
 export const Login = () => {
-    const [email, setLogin] = useState("smit4eggg@bk.ru")
-    const [password, setPassword] = useState("12345678")
+    const [email, setLogin] = useState("")
+    const [password, setPassword] = useState("")
     const [rememberMe, setRememberMe] = useState(true)
 
     const dispatch = useDispatch()
@@ -23,19 +26,31 @@ export const Login = () => {
         dispatch(loginTC(email, password, rememberMe))
     }
 
-    const logOut = () => {
-        dispatch(logOutTC())
-    }
-
     return (
-        <div className={s.login}>
+        <div className={s.modal}>
+            <div className={s.modal_body}>
+                <div className={s.modal_content}>
+                    <h1>It-Incubator</h1>
+                    <h2> Sign in </h2>
 
-            <input type="text" placeholder={"login"} value={email} onChange={onChangeHandlerLogin}/>
-            <input type="text" placeholder={"password"} value={password} onChange={onChangeHandlerPassword}/>
-            <input type="checkBox" checked={rememberMe} onChange={() => setRememberMe(!rememberMe)}/>
+                    <Input label={"Login"} value={email} onChange={onChangeHandlerLogin}/>
+                    <Input label={"Password"} value={password} onChange={onChangeHandlerPassword}/>
 
-            <button onClick={() => register(email, password, rememberMe)} disabled={disableBtn}>login</button>
-            <button onClick={logOut}>logOut</button>
+                    <div>
+                        <label>Remember me</label>
+                        <input className={s.input} type="checkBox" checked={rememberMe}
+                               onChange={() => setRememberMe(!rememberMe)}/>
+                    </div>
+
+                    <Button value={"Login"} onClick={() => register(email, password, rememberMe)} disable={disableBtn}/>
+
+                    <div className={s.forgot}>
+                        Forgot <NavLink to={"forgotPassword"}> /Password </NavLink>
+
+                        <NavLink to={"registration"}> </NavLink>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }
